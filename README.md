@@ -4,14 +4,17 @@ Trabalho de matématica AV2
 ANALISE E DESENVOLVIMENTO DE SISTEMAS - UNIFOR - 2025.1
 MATEMATICA PARA COMPUTAÇÃO
 
-Equipe: Estenio Gabriel - Arthur Yunes - Paulo Zek
+Equipe: 
+- Arthur Yunes 
+- Estenio Gabriel
+- Paulo Zek
 
-PROJETO :Desenvolver um jogo educativo ou objeto de aprendizagem interativo que
+PROJETO: Desenvolver um jogo educativo ou objeto de aprendizagem interativo que
 ensine conceitos de conjuntos, relações, funções, ou sequências numéricas a alunos do ensino
 médio. O jogo deve ser acessível e intuitivo, incentivando a aprendizagem dos conteúdos de
 forma lúdica e envolvente.
 
-PROJETO DA EQUIPE : SHOW DO TERABYTE, paródia do jogo "show do milhão"
+PROJETO DA EQUIPE: SHOW DO TERABYTE, paródia do jogo "show do milhão"
 
 ![image](https://github.com/user-attachments/assets/c580b0fd-cf7e-413b-9ac1-f0b7f180b7ba)
 
