@@ -4,7 +4,10 @@ Trabalho de matématica AV2
 ANALISE E DESENVOLVIMENTO DE SISTEMAS - UNIFOR - 2025.1
 MATEMATICA PARA COMPUTAÇÃO
 
-Equipe: Estenio Gabriel - Arthur Yunes - Paulo Zek
+Equipe: 
+- Estenio Gabriel
+- Arthur Yunes 
+- Paulo Zek
 
 PROJETO: Desenvolver um jogo educativo ou objeto de aprendizagem interativo que
 ensine conceitos de conjuntos, relações, funções, ou sequências numéricas a alunos do ensino
