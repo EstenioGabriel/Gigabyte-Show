@@ -5,8 +5,8 @@ ANALISE E DESENVOLVIMENTO DE SISTEMAS - UNIFOR - 2025.1
 MATEMATICA PARA COMPUTAÇÃO
 
 Equipe: 
-- Estenio Gabriel
 - Arthur Yunes 
+- Estenio Gabriel
 - Paulo Zek
 
 PROJETO: Desenvolver um jogo educativo ou objeto de aprendizagem interativo que
