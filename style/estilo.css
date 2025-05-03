@@ -1,0 +1,66 @@
+html,body{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+}
+body{
+    background-image: url(../image/logo2.PNG);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.containermusica{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+    
+}
+
+.botaomusica {
+    padding: 10px 20px;
+    font-size: 20px;
+    background-color: #121629;
+    color: aliceblue;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: "Pixelify Sans", sans-serif;
+    margin-bottom: 20px;
+ }
+
+.containerjogar{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+    margin-top: 1px
+}
+
+.botaojogar{
+   padding: 10px 20px;
+   font-size: 30px;
+   background-color: #121629;
+   color: aliceblue;
+   border: none;
+   border-radius: 5px;
+   cursor: pointer;
+   font-family: "Pixelify Sans", sans-serif;
+   margin-bottom: 150px;
+   transition: color 0.3 ease;
+   
+}
+
+
+.botaojogar:hover{
+    background-color:#121629;
+}
