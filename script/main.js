@@ -1,14 +1,18 @@
+// ===============================
+// Música de fundo
+// ===============================
 function tocarMusica() {
   const audio = document.getElementById("bg-musica");
+  const btn = document.getElementById("botao-musica");
+
   if (audio.paused) {
     audio.volume = 0.04;
-    audio
-      .play()
+    audio.play()
       .then(() => {
         btn.textContent = "Pausar Música";
       })
       .catch((err) => {
-        console.log("Erro ao tocar a música:", err);
+        console.error("Erro ao tocar a música:", err);
       });
   } else {
     audio.pause();
@@ -16,18 +20,19 @@ function tocarMusica() {
   }
 }
 
+// ===============================
+// Navegação
+// ===============================
 function irParaOutraPagina() {
   window.location.href = "pagina02.html";
 }
-/////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////
 
-// Lógica em sí
-
+// ===============================
+// Dados das Perguntas
+// ===============================
 const perguntas = [
   {
-    pergunta:
-      "Qual das seguintes inferências representa corretamente o Modus Tollens?",
+    pergunta: "Qual das seguintes inferências representa corretamente o Modus Tollens?",
     opcoes: [
       "A: Se p → q é verdadeiro e p é verdadeiro, então q é verdadeiro.",
       "B: Se p ∧ q é verdadeiro, então p e q são verdadeiros individualmente.",
@@ -37,20 +42,17 @@ const perguntas = [
     respostaCorreta: 2,
   },
   {
-    pergunta:
-      "Qual das fórmulas abaixo representa uma contradição (insatisfatível)?",
+    pergunta: "Qual das fórmulas abaixo representa uma contradição (insatisfatível)?",
     opcoes: ["A: ¬p ∧ p", "B: p ∨ ¬p", "C: p ∧ q", "D: (p → q) ∧ p"],
     respostaCorreta: 0,
   },
   {
-    pergunta:
-      "Qual das alternativas abaixo é uma tautologia (sempre verdadeira)?",
+    pergunta: "Qual das alternativas abaixo é uma tautologia (sempre verdadeira)?",
     opcoes: ["A: p ∧ ¬p", "B: p → p", "C: p ∨ ¬p", "D: p → ¬p"],
     respostaCorreta: 1,
   },
   {
-    pergunta:
-      "Qual é a aplicação correta da Lei de De Morgan para ¬(p ∨ (q ∧ r))?",
+    pergunta: "Qual é a aplicação correta da Lei de De Morgan para ¬(p ∨ (q ∧ r))?",
     opcoes: [
       "A: ¬p ∧ (¬q ∨ ¬r)",
       "B: ¬p ∨ ¬q ∧ r",
@@ -60,8 +62,7 @@ const perguntas = [
     respostaCorreta: 3,
   },
   {
-    pergunta:
-      "Qual apresenta uma equivalência lógica correta com quantificadores?",
+    pergunta: "Qual apresenta uma equivalência lógica correta com quantificadores?",
     opcoes: [
       "A: ∀x (P(x) ∨ Q(x)) ≡ ∀x P(x) ∨ ∀x Q(x)",
       "B: ∃x (P(x) → Q(x)) ≡ ∀x P(x) → ∃x Q(x)",
@@ -91,8 +92,7 @@ const perguntas = [
     respostaCorreta: 1,
   },
   {
-    pergunta:
-      "Qual das propriedades abaixo é característica de uma relação simétrica?",
+    pergunta: "Qual das propriedades abaixo é característica de uma relação simétrica?",
     opcoes: [
       "a) Se (a,b) ∈ R, então (b,a) ∉ R.",
       "b) Se (a,b) ∈ R, então (b,a) ∈ R.",
@@ -112,8 +112,7 @@ const perguntas = [
     respostaCorreta: 0,
   },
   {
-    pergunta:
-      "Qual é a operação que realiza a união entre duas relações R e S?",
+    pergunta: "Qual é a operação que realiza a união entre duas relações R e S?",
     opcoes: [
       "a) R ∪ S = {(a,b) | (a,b) ∈ R ou (a,b) ∈ S}",
       "b) R ∩ S = {(a,b) | (a,b) ∈ R e (a,b) ∈ S}",
@@ -124,35 +123,26 @@ const perguntas = [
   },
   {
     pergunta: "Qual é a união dos conjuntos A = {1, 2, 3} e B = {3, 4, 5}?",
-    opcoes: [
-      "A: {1, 2, 3, 4, 5}",
-      "B: {1, 2, 4, 5}",
-      "C: {1, 2, 3}",
-      "D: {2, 3, 4, 5}",
-    ],
+    opcoes: ["A: {1, 2, 3, 4, 5}", "B: {1, 2, 4, 5}", "C: {1, 2, 3}", "D: {2, 3, 4, 5}"],
     respostaCorreta: 0,
   },
   {
-    pergunta:
-      "Qual é a interseção dos conjuntos A = {1, 2, 3} e B = {2, 3, 4}?",
+    pergunta: "Qual é a interseção dos conjuntos A = {1, 2, 3} e B = {2, 3, 4}?",
     opcoes: ["A: {1, 2}", "B: {2, 3}", "C: {1, 3}", "D: {3, 4}"],
     respostaCorreta: 1,
   },
   {
-    pergunta:
-      "Qual é a diferença entre os conjuntos A = {1, 2, 3} e B = {2, 3, 4}?",
+    pergunta: "Qual é a diferença entre os conjuntos A = {1, 2, 3} e B = {2, 3, 4}?",
     opcoes: ["A: {1}", "B: {2, 3}", "C: {2}", "D: {3}"],
     respostaCorreta: 0,
   },
   {
-    pergunta:
-      "Qual é a diferença simétrica entre os conjuntos A = {1, 2, 3} e B = {3, 4, 5}?",
+    pergunta: "Qual é a diferença simétrica entre os conjuntos A = {1, 2, 3} e B = {3, 4, 5}?",
     opcoes: ["A: {1, 2, 3}", "B: {1, 2, 4, 5}", "C: {2, 4}", "D: {1, 3, 4, 5}"],
     respostaCorreta: 1,
   },
   {
-    pergunta:
-      "Qual é o produto cartesiano entre os conjuntos A = {1, 2} e B = {a, b}?",
+    pergunta: "Qual é o produto cartesiano entre os conjuntos A = {1, 2} e B = {a, b}?",
     opcoes: [
       "A: {(1, a), (2, a), (1, b), (2, b)}",
       "B: {(1, a), (1, b), (2, a), (2, b)}",
@@ -163,19 +153,21 @@ const perguntas = [
   },
 ];
 
-/////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////
-
-// Seleção de Elementos
+// ===============================
+// Variáveis do jogo
+// ===============================
 const containerPerguntas = document.querySelector(".perguntas");
-const containerRespostas = document.querySelector(".respostas");
 let perguntaIndiceAtual = 0;
+let pontos = 0;
+let erros = 0;
 
-// Função para exibir a pergunta
-function exibirPergunta(perguntaIndex) {
-  const pergunta = perguntas[perguntaIndex];
+// ===============================
+// Exibe pergunta atual
+// ===============================
+function exibirPergunta(index) {
+  const pergunta = perguntas[index];
+  containerPerguntas.innerHTML = "";
 
-  // Criar a pergunta dinamicamente
   const divPergunta = document.createElement("div");
   divPergunta.classList.add("pergunta");
 
@@ -183,60 +175,79 @@ function exibirPergunta(perguntaIndex) {
   perguntaTexto.textContent = pergunta.pergunta;
   divPergunta.appendChild(perguntaTexto);
 
-  // Criar as respostas dinamicamente
   const divRespostas = document.createElement("div");
   divRespostas.classList.add("respostas");
-  divRespostas.style.marginTop = "20px";
-  divRespostas.style.display = "flex";
-  divRespostas.style.flexDirection = "column";
-  divRespostas.style.gap = "10px";
-  divRespostas.style.width = "70%";
+  divRespostas.style.cssText = `
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 70%;
+  `;
 
-  pergunta.opcoes.forEach((opcao, index) => {
-    const botaoResposta = document.createElement("button");
-    botaoResposta.classList.add("resposta");
-    botaoResposta.textContent = opcao;
-    botaoResposta.style.textAlign = "left";
-    botaoResposta.addEventListener("click", () =>
-      verificarResposta(index, pergunta.respostaCorreta)
-    );
-    divRespostas.appendChild(botaoResposta);
+  pergunta.opcoes.forEach((opcao, i) => {
+    const botao = document.createElement("button");
+    botao.classList.add("resposta");
+    botao.textContent = opcao;
+    botao.style.textAlign = "left";
+    botao.addEventListener("click", () => verificarResposta(i, pergunta.respostaCorreta));
+    divRespostas.appendChild(botao);
   });
 
   divPergunta.appendChild(divRespostas);
   containerPerguntas.appendChild(divPergunta);
 }
 
-// Função para verificar se a resposta está correta
-function verificarResposta(respostaEscolhida, respostaCorreta) {
-  if (respostaEscolhida === respostaCorreta) {
+// ===============================
+// Verifica resposta
+// ===============================
+function verificarResposta(escolhida, correta) {
+  if (escolhida === correta) {
     alert("Resposta correta!");
+    pontos++;
+    atualizarPlacar();
 
-    // Avançar para a próxima pergunta
-    if (perguntaIndiceAtual < perguntas.length - 1) {
-      perguntaIndiceAtual++;
-      containerPerguntas.innerHTML = ""; // Limpar as perguntas anteriores
-      exibirPergunta(perguntaIndiceAtual); // Exibir a próxima pergunta
+    // Avança para a próxima pergunta apenas se todas as perguntas foram acertadas
+    if (pontos === perguntas.length) {
+      alert(`Você completou o quiz!\nPontuação final: ${pontos} de ${perguntas.length}`);
+      desativarBotoes();
     } else {
-      alert("Você completou o quiz!");
-      desativarBotoes(); // Desativar os botões quando o quiz for completado
+      // Avança para a próxima pergunta
+      perguntaIndiceAtual++;
+      exibirPergunta(perguntaIndiceAtual);
     }
   } else {
     alert("Resposta incorreta! Tente novamente.");
-    // Não avança para a próxima pergunta se a resposta estiver incorreta
+    erros++;
+    atualizarPlacar();
+    // Não avançar para a próxima pergunta até acertar
   }
 }
 
-//Desativas botõe apos completar o quizz
+
+
+
+// ===============================
+// Atualiza placar
+// ===============================
+function atualizarPlacar() {
+  document.getElementById("pontos").textContent = `Pontos: ${pontos}`;
+  document.getElementById("erros").textContent = `Erros: ${erros}`;
+}
+
+// ===============================
+// Desativa botões de resposta
+// ===============================
 function desativarBotoes() {
-  // Desativa todos os botões de resposta
-  const botoes = document.querySelectorAll("button");
-  botoes.forEach((botao) => {
-    botao.disabled = true;
+  document.querySelectorAll(".resposta").forEach((btn) => {
+    btn.disabled = true;
   });
 }
 
-// Mostrar a primeira pergunta quando a página for carregada
+// ===============================
+// Inicialização
+// ===============================
 document.addEventListener("DOMContentLoaded", () => {
   exibirPergunta(perguntaIndiceAtual);
+  document.getElementById("botao-musica").addEventListener("click", tocarMusica);
 });

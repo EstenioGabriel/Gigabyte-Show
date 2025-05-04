@@ -5,7 +5,7 @@ html,body{
     overflow: hidden;
 }
 body{
-    background-image: url(../image/logo2.PNG);
+    background-image: url(../image/logo_oficial.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -45,6 +45,20 @@ body{
     gap: 20px;
     margin-top: 1px
 }
+
+.p{
+    padding: 10px 20px;
+    font-size: 30px;
+    background-color: #121629;
+    color: aliceblue;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: "Pixelify Sans", sans-serif;
+    margin-bottom: 150px;
+    transition: trasform 0.5s ease;
+    
+ }
 
 .botaojogar{
    padding: 10px 20px;
