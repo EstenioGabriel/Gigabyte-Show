@@ -160,6 +160,7 @@ const containerPerguntas = document.querySelector(".perguntas");
 let perguntaIndiceAtual = 0;
 let pontos = 0;
 let erros = 0;
+let dicasRestantes = 3;
 
 // ===============================
 // Exibe pergunta atual
@@ -190,6 +191,7 @@ function exibirPergunta(index) {
     botao.classList.add("resposta");
     botao.textContent = opcao;
     botao.style.textAlign = "left";
+    botao.dataset.index = i;
     botao.addEventListener("click", () => verificarResposta(i, pergunta.respostaCorreta));
     divRespostas.appendChild(botao);
   });
@@ -207,12 +209,10 @@ function verificarResposta(escolhida, correta) {
     pontos++;
     atualizarPlacar();
 
-    // Avança para a próxima pergunta apenas se todas as perguntas foram acertadas
     if (pontos === perguntas.length) {
       alert(`Você completou o quiz!\nPontuação final: ${pontos} de ${perguntas.length}`);
       desativarBotoes();
     } else {
-      // Avança para a próxima pergunta
       perguntaIndiceAtual++;
       exibirPergunta(perguntaIndiceAtual);
     }
@@ -220,12 +220,8 @@ function verificarResposta(escolhida, correta) {
     alert("Resposta incorreta! Tente novamente.");
     erros++;
     atualizarPlacar();
-    // Não avançar para a próxima pergunta até acertar
   }
 }
-
-
-
 
 // ===============================
 // Atualiza placar
@@ -245,9 +241,39 @@ function desativarBotoes() {
 }
 
 // ===============================
+// Função de Dica
+// ===============================
+function usarDica() {
+  if (dicasRestantes <= 0) return;
+
+  const botoes = Array.from(document.querySelectorAll(".resposta"));
+  const perguntaAtual = perguntas[perguntaIndiceAtual];
+
+  const incorretas = botoes.filter(
+    (btn) => parseInt(btn.dataset.index) !== perguntaAtual.respostaCorreta && !btn.disabled
+  );
+
+  // Remove (esconde) até 2 incorretas
+  for (let i = 0; i < 2 && incorretas.length > 0; i++) {
+    const randIndex = Math.floor(Math.random() * incorretas.length);
+    const btn = incorretas.splice(randIndex, 1)[0];
+    btn.style.display = "none";
+  }
+
+  dicasRestantes--;
+  const btnDica = document.getElementById("btnDica");
+  btnDica.textContent = `Usar Dica (${dicasRestantes} restante${dicasRestantes !== 1 ? 's' : ''})`;
+
+  if (dicasRestantes === 0) {
+    btnDica.disabled = true;
+  }
+}
+
+// ===============================
 // Inicialização
 // ===============================
 document.addEventListener("DOMContentLoaded", () => {
   exibirPergunta(perguntaIndiceAtual);
   document.getElementById("botao-musica").addEventListener("click", tocarMusica);
+  document.getElementById("btnDica").addEventListener("click", usarDica);
 });
