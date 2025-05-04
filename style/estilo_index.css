@@ -56,11 +56,12 @@ body{
    cursor: pointer;
    font-family: "Pixelify Sans", sans-serif;
    margin-bottom: 150px;
-   transition: color 0.3 ease;
+   transition: trasform 0.5s ease;
    
 }
 
 
 .botaojogar:hover{
-    background-color:#121629;
+    transform: scale(1.1);
+    background-color:#265592;
 }
