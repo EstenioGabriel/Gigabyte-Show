@@ -3,17 +3,14 @@
 // ===============================
 function tocarMusica() {
   const audio = document.getElementById("bg-musica");
+  const audio2 = document.getElementById("bg-musica2");
   const btn = document.getElementById("botao-musica");
+  const btn2 = document.getElementById("botao-musica2");
 
   if (audio.paused) {
     audio.volume = 0.04;
     audio.play()
-      .then(() => {
-        btn.textContent = "Pausar Música";
-      })
-      .catch((err) => {
-        console.error("Erro ao tocar a música:", err);
-      });
+    btn.textContent = "Pausar Música";
   } else {
     audio.pause();
     btn.textContent = "Tocar Música";
@@ -25,6 +22,9 @@ function tocarMusica() {
 // ===============================
 function irParaOutraPagina() {
   window.location.href = "pagina02.html";
+}
+function voltar() {
+  window.location.href = "index.html";
 }
 
 // ===============================
@@ -160,12 +160,17 @@ const containerPerguntas = document.querySelector(".perguntas");
 let perguntaIndiceAtual = 0;
 let pontos = 0;
 let erros = 0;
-let dicasRestantes = 3;
+let dicasRestantes = 7;
 
 // ===============================
 // Exibe pergunta atual
 // ===============================
 function exibirPergunta(index) {
+  if(dicasRestantes === 0) {
+    btnDica.disabled = true;
+  } else {
+    btnDica.disabled = false;
+  }
   const pergunta = perguntas[index];
   containerPerguntas.innerHTML = "";
 
@@ -201,9 +206,24 @@ function exibirPergunta(index) {
 }
 
 // ===============================
+// Verifica se dois ou mais botões foram desabilitadaos
+// ===============================
+function verificarBotoesDesabilitados() {
+  const botoes = document.querySelectorAll(".resposta");
+  const desabilitados = Array.from(botoes).filter(btn => btn.disabled).length;
+
+  if (desabilitados >= 2) {
+    const btnDica = document.getElementById("btnDica");
+    btnDica.disabled = true;
+  }
+}
+
+// ===============================
 // Verifica resposta
 // ===============================
 function verificarResposta(escolhida, correta) {
+  const botoes = document.querySelectorAll(".resposta");
+
   if (escolhida === correta) {
     alert("Resposta correta!");
     pontos++;
@@ -220,6 +240,10 @@ function verificarResposta(escolhida, correta) {
     alert("Resposta incorreta! Tente novamente.");
     erros++;
     atualizarPlacar();
+
+    // Desabilita apenas o botão da resposta errada clicada
+    botoes[escolhida].disabled = true;
+    verificarBotoesDesabilitados();
   }
 }
 
@@ -254,9 +278,9 @@ function usarDica() {
   );
 
   // Remove (esconde) até 2 incorretas
-  for (let i = 0; i < 2 && incorretas.length > 0; i++) {
-    const randIndex = Math.floor(Math.random() * incorretas.length);
-    const btn = incorretas.splice(randIndex, 1)[0];
+  for (let i = 0; i < 2 && incorretas.length > 1; i++) {
+    const randIndex = Math.random() * incorretas.length;
+    const btn = incorretas.splice(randIndex, 2)[0];
     btn.style.display = "none";
   }
 
@@ -267,6 +291,7 @@ function usarDica() {
   if (dicasRestantes === 0) {
     btnDica.disabled = true;
   }
+  btnDica.disabled = true;
 }
 
 // ===============================
@@ -274,6 +299,4 @@ function usarDica() {
 // ===============================
 document.addEventListener("DOMContentLoaded", () => {
   exibirPergunta(perguntaIndiceAtual);
-  document.getElementById("botao-musica").addEventListener("click", tocarMusica);
-  document.getElementById("btnDica").addEventListener("click", usarDica);
 });
