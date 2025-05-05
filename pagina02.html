@@ -34,15 +34,15 @@
   
     <!-- Controles -->
     <div class="controles">
-      <button id="btnVoltar" class="voltar">Voltar</button>
-      <button id="btnDica">Usar Dica (3 restantes)</button>
-      <button id="botao-musica">Tocar Música</button>
+      <button id="btnVoltar" class="voltar" onclick = "voltar()" >Voltar</button>
+      <button id="btnDica" onclick = "usarDica()" >Usar Dica (7 restantes)</button>
+      <button class="botaomusica" id="musicaBtn" onclick="tocarMusica()">Música</button>
       <audio id="bg-musica" src="sua-musica.mp3" loop></audio>  
     </div>
   
     <!-- Música de Fundo -->
     <audio id="bg-musica" loop>
-      <source src="/audio/musicadefundo.mp3" type="audio/mpeg" />
+      <source src="audio/musicadefundo.mp3" type="audio/mpeg">
     </audio>
 
   <!-- Script -->
