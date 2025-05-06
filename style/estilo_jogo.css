@@ -95,7 +95,7 @@ body {
   }
   
   .controles button {
-    background-color: #2ecc71; /* Cor verde vibrante */
+    background-color: #ff8e3c; /* Cor verde vibrante */
     color: white;
     font-size: 18px;
     padding: 15px 30px;
@@ -109,7 +109,7 @@ body {
   }
   
   .controles button:hover {
-    background-color: #27ae60; /* Verde mais escuro quando passa o mouse */
+    background-color: #265592; /* Verde mais escuro quando passa o mouse */
     transform: scale(1.05); /* Aumenta um pouco o botão no hover */
   }
   
@@ -122,3 +122,25 @@ body {
     background-color: #bdc3c7; /* Cor desabilitada (cinza) */
     cursor: not-allowed;
   }
+
+  .botaomusica {
+    padding: 10px 20px;
+    font-size: 20px;
+    background-color: #ff8e3c;;
+    color: aliceblue;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: "Pixelify Sans", sans-serif;
+    margin-bottom: 20px;
+ }
+ .containermusica{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+  
+}

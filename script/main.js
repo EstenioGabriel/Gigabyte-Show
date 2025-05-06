@@ -8,7 +8,7 @@ function tocarMusica() {
   const btn2 = document.getElementById("botao-musica2");
 
   if (audio.paused) {
-    audio.volume = 0.04;
+    audio.volume = 0.50;
     audio.play()
     btn.textContent = "Pausar Música";
   } else {
