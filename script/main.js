@@ -318,6 +318,7 @@ function verificarResposta(escolhida, correta) {
       mostrarModalErro("❌ Errou de novo! Última chance!");
     } else {
       mostrarModalErro("Você esgotou as tentativas para esta pergunta. Vamos para a próxima!");
+      desativarBotoes()
       tentativasPorPergunta = 0;
       setTimeout(() => {
         fecharModalErro();
@@ -328,7 +329,7 @@ function verificarResposta(escolhida, correta) {
           mostrarTelaFinal();
           desativarBotoes();
         }
-      }, 3000); // Espera 2s para mostrar a mensagem antes de ir para a próxima
+      }, 2000); // Espera 2s para mostrar a mensagem antes de ir para a próxima
     }
   }
 }
