@@ -14,7 +14,7 @@
 </head>
 <body>
 
-  <!-- Música de Fundo -->
+  <!-- Controle da Música de Fundo -->
   <div class="containerjogarmusica">
     <button class="botaomusica" id="botao-musica" onclick="tocarMusica()">Tocar Música</button>
   </div>
@@ -23,58 +23,62 @@
     <source src="audio/musicadefundo.mp3" type="audio/mpeg">
   </audio>
 
-    <!-- Container Principal do Quiz -->
-    <div class="quiz-container">
+  <!-- Container Principal do Quiz -->
+  <div class="quiz-container">
 
-      <!-- Placar -->
-      <div class="placar-container">
-        <p id="pontos">Pontos: 0</p>
-        <p id="erros">Erros: 0</p>
-      </div>
-  
-      <!-- Barra de Progresso -->
-      <div id="progresso">
-        <div id="barra"></div>
-      </div>
-  
-      <!-- Área das Perguntas -->
-      <div class="perguntas">
-        
-      </div>
+    <!-- Placar de Pontuação -->
+    <div class="placar-container">
+      <p id="pontos">Pontos: 0</p>
+      <p id="erros">Erros: 0</p>
     </div>
-    <!-- Controles -->
-    <div class="controles">
-      <button id="btnVoltar" class="voltar" onclick = "voltar()" >Voltar</button>
-      <button id="btnDica" onclick="usarDica()">Usar Dica <br> (<span id="dicasRestantes">7</span> restantes)</button>           
+
+    <!-- Barra de Progresso -->
+    <div id="progresso">
+      <div id="barra"></div>
     </div>
-  
-    <!-- Modal de Acerto -->
-    <div id="modalAcerto" class="modal">
-      <div class="modal-content">
+
+    <!-- Área Dinâmica de Perguntas -->
+    <div class="perguntas">
+      <!-- As perguntas serão inseridas dinamicamente via JavaScript -->
+    </div>
+
+  </div>
+
+  <!-- Controles do Quiz -->
+  <div class="controles">
+    <button id="btnVoltar" class="voltar" onclick="voltar()">Voltar</button>
+    <button id="btnDica" onclick="usarDica()">
+      Usar Dica <br> (<span id="dicasRestantes">7</span> restantes)
+    </button>           
+  </div>
+
+  <!-- Modal de Acerto -->
+  <div id="modalAcerto" class="modal">
+    <div class="modal-content">
       <h2>✅ Acertou!</h2>
       <button onclick="fecharModalAcerto()">Continuar</button>
     </div>
+  </div> 
 
-    <!-- Modal de Erro -->
-    <div id="modalErro" class="modal">
-      <div class="modal-content">
-        <p id="mensagemErro">❌ Resposta incorreta!</p>
-        <button onclick="fecharModalErro()">Tentar Novamente</button>
-      </div>
+  <!-- Modal de Erro -->
+  <div id="modalErro" class="modal">
+    <div class="modal-content">
+      <p id="mensagemErro">❌ Resposta incorreta!</p>
+      <button onclick="fecharModalErro()">Tentar Novamente</button>
     </div>
+  </div>
 
-    <!-- Modal Final -->
-    <div id="modalFinal" class="modal2">
-      <div class="modal-content2">
-        <h2> 🎉 Obrigado por participar do The GigaByte Show 🎉</h2>
-        <p id="mensagemFinal"></p>
-        <button onclick="reiniciarQuiz()">Reiniciar</button>
-        <button onclick="voltar()">Voltar ao Início</button>
+  <!-- Modal de Conclusão do Quiz -->
+  <div id="modalFinal" class="modal2">
+    <div class="modal-content2">
+      <h2>🎉 Obrigado por participar do The GigaByte Show 🎉</h2>
+      <p id="mensagemFinal"></p>
+      <button onclick="reiniciarQuiz()">Reiniciar</button>
+      <button onclick="voltar()">Voltar ao Início</button>
     </div>
-</div>
+  </div>
 
-    
- <!-- Script -->
- <script src="script/main.js"></script>
+  <!-- Script Principal -->
+  <script src="script/main.js"></script>
 </body>
 </html>
