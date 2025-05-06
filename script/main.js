@@ -297,19 +297,9 @@ function verificarResposta(escolhida, correta) {
   const botoes = document.querySelectorAll(".resposta");
 
   if (escolhida === correta) {
-    alert("Resposta correta!");
-    pontos++;
-    atualizarPlacar();
-
-    if (pontos === perguntas.length) {
-      alert(`Você completou o quiz!\nPontuação final: ${pontos} de ${perguntas.length}`);
-      desativarBotoes();
-    } else {
-      perguntaIndiceAtual++;
-      exibirPergunta(perguntaIndiceAtual);
-    }
+    mostrarModalAcerto();
   } else {
-    alert("Resposta incorreta! Tente novamente.");
+    mostrarModalErro();
     erros++;
     atualizarPlacar();
 
@@ -318,6 +308,7 @@ function verificarResposta(escolhida, correta) {
     verificarBotoesDesabilitados();
   }
 }
+
 
 // ===============================
 // Atualiza placar
@@ -358,7 +349,7 @@ function usarDica() {
 
   dicasRestantes--;
   const btnDica = document.getElementById("btnDica");
-  btnDica.textContent = `Usar Dica (${dicasRestantes} restante${dicasRestantes !== 1 ? 's' : ''})`;
+  btnDica.textContent = `Usar Dica  (${dicasRestantes} restante${dicasRestantes !== 1 ? 's' : ''})`;
 
   if (dicasRestantes === 0) {
     btnDica.disabled = true;
@@ -372,3 +363,36 @@ function usarDica() {
 document.addEventListener("DOMContentLoaded", () => {
   exibirPergunta(perguntaIndiceAtual);
 });
+
+function mostrarModalAcerto() {
+  document.getElementById("modalAcerto").style.display = "block";
+}
+
+function fecharModalAcerto() {
+  document.getElementById("modalAcerto").style.display = "none";
+  pontos++;
+  atualizarPlacar();
+
+  if (pontos === perguntas.length) {
+    alert(`Você completou o quiz!\nPontuação final: ${pontos} de ${perguntas.length}`);
+    desativarBotoes();
+  } else {
+    perguntaIndiceAtual++;
+    exibirPergunta(perguntaIndiceAtual);
+  }
+}
+
+function mostrarModalErro() {
+  document.getElementById("modalErro").style.display = "block";
+}
+
+function fecharModalErro() {
+  document.getElementById("modalErro").style.display = "none";
+}
+
+function mostrarModalFinal() {
+  const modal = document.getElementById("modalFinal");
+  const mensagem = document.getElementById("mensagemFinal");
+  mensagem.innerText = `Você completou o quiz!\nPontuação final: ${pontos} de ${perguntas.length}`;
+  modal.style.display = "flex";
+}
