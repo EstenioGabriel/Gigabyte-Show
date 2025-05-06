@@ -221,7 +221,7 @@ const perguntas = [
       "D: 1, 3, 5, 7, 9",
     ],
     respostaCorreta: 1,
-  },
+  }
  
 ];
 
@@ -325,14 +325,10 @@ function verificarResposta(escolhida, correta) {
         if (perguntaIndiceAtual < perguntas.length) {
           exibirPergunta(perguntaIndiceAtual);
         } else {
-          // Aguarda um pouco antes de exibir a tela final
-          setTimeout(() => {
-            mostrarTelaFinal();
-            desativarBotoes();
-          }, 1000);
+          mostrarTelaFinal();
+          desativarBotoes();
         }
-        
-      }, ); // Espera 2s para mostrar a mensagem antes de ir para a próxima
+      }, 3000); // Espera 2s para mostrar a mensagem antes de ir para a próxima
     }
   }
 }

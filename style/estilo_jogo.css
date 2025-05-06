@@ -1,274 +1,274 @@
 /* Fonte e fundo geral */
 body {
-    font-family: 'Pixelify Sans', sans-serif;
-    background-image: url(../image/palcooficial.jpeg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    padding: 20px;
-    text-align: center;
-    margin: 0;
-    min-height: 100vh;
-    overflow: hidden;
-  }
-  
-  /* Container principal do quiz */
-  .quiz-container {
-    background-color: rgba(192, 215, 233, 0.95); /* azul claro com leve transparência */
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-    max-width: 800px;
-    margin: 30px auto;
-  }
-  
-  /* Placar de pontos e erros */
-  .placar-container {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    color: #333;
-    display: flex;
-    justify-content: space-around;
-  }
-  
-  /* Estilo para as perguntas */
-  .pergunta {
-    background-color: #f4f4f4; /* Cor de fundo suave */
-    padding: 20px;
-    border-radius: 10px; /* Bordas arredondadas */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra leve */
-    margin-bottom: 20px;
-    font-size: 18px;
-    color: #333;
-  }
-  
-  .pergunta p {
-    margin-bottom: 15px;
-    font-weight: bold;
-    font-size: 20px; /* Tamanho maior para as perguntas */
-    color: #2c3e50; /* Cor mais escura para o texto da pergunta */
-    text-align: center;
-  }
-  
-  /* Estilo para as opções de resposta */
-  .respostas {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin-top: 20px;
-    align-items: center; /* Centraliza as alternativas */
-    justify-content: center; /* Alinha as alternativas no centro */
-  }
-  
-  .resposta {
-    background-color: #3498db; /* Cor de fundo azul */
-    color: #fff;
-    font-size: 16px;
-    padding: 15px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-align: center;
-    width: 100%; /* Largura dos botões de resposta */
-    max-width: 500px;
-  }
-  
-  .resposta:hover {
-    background-color: #2980b9; /* Azul mais escuro quando passa o mouse */
-  }
-  
-  .resposta:active {
-    transform: scale(0.98); /* Efeito de clique */
-  }
-  
-  .resposta:disabled {
-    background-color: #95a5a6; /* Cor mais escura quando desabilitado */
-    cursor: not-allowed;
-  }
+  font-family: 'Pixelify Sans', sans-serif;
+  background-image: url(../image/palcooficial.jpeg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 20px;
+  text-align: center;
+  margin: 0;
+  min-height: 100vh;
+  overflow: hidden;
+}
 
-  /* Estilo para os botões de controle (Parar e Tocar Música) */
-  .controles {
-    display: flex;
-    justify-content: center;
-    gap: 20px; /* Espaço entre os botões */
-    margin-top: 30px;
-  }
-  
-  .controles button {
-    background-color: #ff8e3c; /* Cor verde vibrante */
-    color: white;
-    font-size: 18px;
-    padding: 15px 30px;
-    border: none;
-    border-radius: 25px; /* Bordas arredondadas */
-    cursor: pointer;
-    transition: all 0.3s ease; /* Transição suave */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Sombra leve para dar profundidade */
-    font-weight: bold;
-    width: 200px;
-  }
-  
-  .controles button:hover {
-    background-color: #265592; /* Verde mais escuro quando passa o mouse */
-    transform: scale(1.05); /* Aumenta um pouco o botão no hover */
-  }
-  
-  .controles button:active {
-    background-color: #2ecc71; /* Retorna ao verde original no clique */
-    transform: scale(0.98); /* Efeito de pressionamento */
-  }
-  
-  .controles button:disabled {
-    background-color: #bdc3c7; /* Cor desabilitada (cinza) */
-    cursor: not-allowed;
-  }
+/* Container principal do quiz */
+.quiz-container {
+  background-color: rgba(192, 215, 233, 0.95); /* azul claro com leve transparência */
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  max-width: 800px;
+  margin: 30px auto;
+}
 
-  .botaomusica {
-    padding: 10px 20px;
-    font-size: 20px;
-    background-color: #ff8e3c;
-    color: aliceblue;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-family: "Pixelify Sans", sans-serif;
-    margin-bottom: 20px;
- }
- .containermusica{
-  height: 100vh;
+/* Placar de pontos e erros */
+.placar-container {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333;
+  display: flex;
+  justify-content: space-around;
+}
+
+/* Estilo para as perguntas */
+.pergunta {
+  background-color: #f4f4f4; /* Cor de fundo suave */
+  padding: 20px;
+  border-radius: 10px; /* Bordas arredondadas */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra leve */
+  margin-bottom: 20px;
+  font-size: 18px;
+  color: #333;
+}
+
+.pergunta p {
+  margin-bottom: 15px;
+  font-weight: bold;
+  font-size: 20px; /* Tamanho maior para as perguntas */
+  color: #2c3e50; /* Cor mais escura para o texto da pergunta */
+  text-align: center;
+}
+
+/* Estilo para as opções de resposta */
+.respostas {
   display: flex;
   flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+  align-items: center; /* Centraliza as alternativas */
+  justify-content: center; /* Alinha as alternativas no centro */
+}
+
+.resposta {
+  background-color: #3498db; /* Cor de fundo azul */
+  color: #fff;
+  font-size: 16px;
+  padding: 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  width: 100%; /* Largura dos botões de resposta */
+  max-width: 500px;
+}
+
+.resposta:hover {
+  background-color: #2980b9; /* Azul mais escuro quando passa o mouse */
+}
+
+.resposta:active {
+  transform: scale(0.98); /* Efeito de clique */
+}
+
+.resposta:disabled {
+  background-color: #95a5a6; /* Cor mais escura quando desabilitado */
+  cursor: not-allowed;
+}
+
+/* Estilo para os botões de controle (Parar e Tocar Música) */
+.controles {
+  display: flex;
   justify-content: center;
-  align-items: center;
-  text-align: center;
-  gap: 20px;
-  
-}
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 999;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0,0,0,0.6);
+  gap: 20px; /* Espaço entre os botões */
+  margin-top: 30px;
 }
 
-.modal-content {
-  background-color: #2f2f3a;
+.controles button {
+  background-color: #ff8e3c; /* Cor verde vibrante */
   color: white;
-  margin: 20% auto;
-  padding: 20px;
-  border-radius: 10px;
-  width: 300px;
-  text-align: center;
+  font-size: 18px;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 25px; /* Bordas arredondadas */
+  cursor: pointer;
+  transition: all 0.3s ease; /* Transição suave */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Sombra leve para dar profundidade */
+  font-weight: bold;
+  width: 200px;
 }
 
-.modal-content button {
-  margin-top: 15px;
-  padding: 8px 16px;
-  background-color: cyan;
+.controles button:hover {
+  background-color: #265592; /* Verde mais escuro quando passa o mouse */
+  transform: scale(1.05); /* Aumenta um pouco o botão no hover */
+}
+
+.controles button:active {
+  background-color: #2ecc71; /* Retorna ao verde original no clique */
+  transform: scale(0.98); /* Efeito de pressionamento */
+}
+
+.controles button:disabled {
+  background-color: #bdc3c7; /* Cor desabilitada (cinza) */
+  cursor: not-allowed;
+}
+
+.botaomusica {
+  padding: 10px 20px;
+  font-size: 20px;
+  background-color: #ff8e3c;
+  color: aliceblue;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  font-family: "Pixelify Sans", sans-serif;
+  margin-bottom: 20px;
 }
+.containermusica{
+height: 100vh;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+text-align: center;
+gap: 20px;
 
+}
 .modal {
-  display: none;
-  position: fixed;
-  z-index: 100;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0,0,0,0.7);
-  justify-content: center;
-  align-items: center;
+display: none;
+position: fixed;
+z-index: 999;
+left: 0;
+top: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0,0,0,0.6);
 }
 
 .modal-content {
-  background-color: #222;
-  color: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  text-align: center;
+background-color: #2f2f3a;
+color: white;
+margin: 20% auto;
+padding: 20px;
+border-radius: 10px;
+width: 300px;
+text-align: center;
 }
 
 .modal-content button {
-  margin-top: 15px;
-  padding: 10px 20px;
-  background-color: cyan;
-  border: none;
-  cursor: pointer;
-  font-weight: bold;
+margin-top: 15px;
+padding: 8px 16px;
+background-color: cyan;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+}
+
+.modal {
+display: none;
+position: fixed;
+z-index: 100;
+left: 0;
+top: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0,0,0,0.7);
+justify-content: center;
+align-items: center;
+}
+
+.modal-content {
+background-color: #222;
+color: #fff;
+padding: 20px;
+border-radius: 10px;
+text-align: center;
+}
+
+.modal-content button {
+margin-top: 15px;
+padding: 10px 20px;
+background-color: cyan;
+border: none;
+cursor: pointer;
+font-weight: bold;
 }
 
 .modal2 {
-  display: none; /* Oculta por padrão */
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0,0,0,0.5);
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
+display: none; /* Oculta por padrão */
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0,0,0,0.5);
+justify-content: center;
+align-items: center;
+z-index: 1000;
 }
 
 .modal2.active {
-  display: flex;
+display: flex;
 }
 
 .modal-content2 {
-  background-color: #95a5a6;
-  padding: 2rem;
-  border-radius: 10px;
-  text-align: center;
-  max-width: 90%;
+background-color: #95a5a6;
+padding: 2rem;
+border-radius: 10px;
+text-align: center;
+max-width: 90%;
 }
 
 
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+from { opacity: 0; }
+to { opacity: 1; }
 }
 
 .modal-content2 {
-  background-color: #ecf0f1;
-  padding: 2rem 3rem;
-  border-radius: 16px;
-  text-align: center;
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
-  max-width: 500px;
-  width: 90%;
-  animation: scaleUp 0.3s ease-out;
+background-color: #ecf0f1;
+padding: 2rem 3rem;
+border-radius: 16px;
+text-align: center;
+box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+max-width: 500px;
+width: 90%;
+animation: scaleUp 0.3s ease-out;
 }
 
 @keyframes scaleUp {
-  from { transform: scale(0.8); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
+from { transform: scale(0.8); opacity: 0; }
+to { transform: scale(1); opacity: 1; }
 }
 
 #modalFinal button {
-  margin-top: 20px;
-  padding: 14px 28px;
-  background-color: #ff8e3c;
-  color: white;
-  font-size: 1.1rem;
-  font-weight: 600;
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+margin-top: 20px;
+padding: 14px 28px;
+background-color: #ff8e3c;
+color: white;
+font-size: 1.1rem;
+font-weight: 600;
+border: none;
+border-radius: 12px;
+cursor: pointer;
+transition: background-color 0.3s ease, transform 0.2s ease;
+box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
 }
 
 #modalFinal button:hover {
-  background-color: #e07b2b;
-  transform: scale(1.08);
+background-color: #e07b2b;
+transform: scale(1.08);
 }
