@@ -318,7 +318,7 @@ function verificarResposta(escolhida, correta) {
       mostrarModalErro("❌ Errou de novo! Última chance!");
     } else {
       mostrarModalErro("Você esgotou as tentativas para esta pergunta. Vamos para a próxima!");
-      desativarBotoes();
+      desativarBotoes()
       tentativasPorPergunta = 0;
       setTimeout(() => {
         fecharModalErro();
