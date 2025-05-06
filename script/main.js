@@ -221,7 +221,8 @@ const perguntas = [
       "D: 1, 3, 5, 7, 9",
     ],
     respostaCorreta: 1,
-  },
+  }
+ 
 ];
 
 
@@ -234,10 +235,12 @@ let pontos = 0;
 let erros = 0;
 let dicasRestantes = 7;
 
+
 // ===============================
 // Exibe pergunta atual
 // ===============================
 function exibirPergunta(index) {
+  const btnDica = document.getElementById("btnDica");
   if(dicasRestantes === 0) {
     btnDica.disabled = true;
   } else {
@@ -293,31 +296,45 @@ function verificarBotoesDesabilitados() {
 // ===============================
 // Verifica resposta
 // ===============================
+let tentativasPorPergunta = 0;
+
 function verificarResposta(escolhida, correta) {
   const botoes = document.querySelectorAll(".resposta");
 
   if (escolhida === correta) {
-    alert("Resposta correta!");
-    pontos++;
-    atualizarPlacar();
-
-    if (pontos === perguntas.length) {
-      alert(`Você completou o quiz!\nPontuação final: ${pontos} de ${perguntas.length}`);
-      desativarBotoes();
-    } else {
-      perguntaIndiceAtual++;
-      exibirPergunta(perguntaIndiceAtual);
-    }
+    tentativasPorPergunta = 0;
+    mostrarModalAcerto();
   } else {
-    alert("Resposta incorreta! Tente novamente.");
     erros++;
     atualizarPlacar();
-
-    // Desabilita apenas o botão da resposta errada clicada
     botoes[escolhida].disabled = true;
     verificarBotoesDesabilitados();
+
+    tentativasPorPergunta++;
+
+    if (tentativasPorPergunta === 1) {
+      mostrarModalErro("❌ Errou! Tente novamente.");
+    } else if (tentativasPorPergunta === 2) {
+      mostrarModalErro("❌ Errou de novo! Última chance!");
+    } else {
+      mostrarModalErro("Você esgotou as tentativas para esta pergunta. Vamos para a próxima!");
+      desativarBotoes();
+      tentativasPorPergunta = 0;
+      setTimeout(() => {
+        fecharModalErro();
+        perguntaIndiceAtual++;
+        if (perguntaIndiceAtual < perguntas.length) {
+          exibirPergunta(perguntaIndiceAtual);
+        } else {
+          mostrarTelaFinal();
+          desativarBotoes();
+        }
+      }, 2000); // Espera 2s para mostrar a mensagem antes de ir para a próxima
+    }
   }
 }
+
+
 
 // ===============================
 // Atualiza placar
@@ -351,14 +368,14 @@ function usarDica() {
 
   // Remove (esconde) até 2 incorretas
   for (let i = 0; i < 2 && incorretas.length > 1; i++) {
-    const randIndex = Math.random() * incorretas.length;
-    const btn = incorretas.splice(randIndex, 2)[0];
+    const randIndex = Math.floor(Math.random() * incorretas.length);
+    const btn = incorretas.splice(randIndex, 1)[0];    
     btn.style.display = "none";
   }
 
   dicasRestantes--;
   const btnDica = document.getElementById("btnDica");
-  btnDica.textContent = `Usar Dica (${dicasRestantes} restante${dicasRestantes !== 1 ? 's' : ''})`;
+  btnDica.textContent = `Usar Dica  (${dicasRestantes} restante${dicasRestantes !== 1 ? 's' : ''})`;
 
   if (dicasRestantes === 0) {
     btnDica.disabled = true;
@@ -371,4 +388,62 @@ function usarDica() {
 // ===============================
 document.addEventListener("DOMContentLoaded", () => {
   exibirPergunta(perguntaIndiceAtual);
+  document.addEventListener("DOMContentLoaded", () => {
+    exibirPergunta(perguntaIndiceAtual);
+    
+    // Garante que todos os modais estejam escondidos ao iniciar
+    document.getElementById("modalFinal").style.display = "none";
+    document.getElementById("modalAcerto").style.display = "none";
+    document.getElementById("modalErro").style.display = "none";
+  });
+  
 });
+
+function mostrarModalAcerto() {
+  document.getElementById("modalAcerto").style.display = "block";
+}
+
+function fecharModalAcerto() {
+  document.getElementById("modalAcerto").style.display = "none";
+  pontos++;
+  atualizarPlacar();
+
+  if (pontos === perguntas.length || perguntaIndiceAtual === perguntas.length - 1) {
+    mostrarTelaFinal();
+    desativarBotoes();
+  } else {
+    perguntaIndiceAtual++;
+    exibirPergunta(perguntaIndiceAtual);
+  }
+  
+}
+
+function mostrarModalErro(mensagem = "❌ Resposta incorreta!") {
+  const modal = document.getElementById("modalErro");
+  const texto = document.getElementById("mensagemErro");
+  texto.textContent = mensagem;
+  modal.style.display = "block";
+}
+
+
+function fecharModalErro() {
+  document.getElementById("modalErro").style.display = "none";
+}
+
+function mostrarTelaFinal() {
+  const modalFinal = document.getElementById("modalFinal");
+  const mensagem = document.getElementById("mensagemFinal");
+  mensagem.textContent = `Você acertou ${pontos} de ${perguntas.length} perguntas.`;
+  modalFinal.style.display = "flex";
+
+}
+
+function reiniciarQuiz() {
+  pontos = 0;
+  erros = 0;
+  dicasRestantes = 7;
+  perguntaIndiceAtual = 0;
+  document.getElementById("modalFinal").style.display = "none";
+  atualizarPlacar();
+  exibirPergunta(perguntaIndiceAtual);
+}
