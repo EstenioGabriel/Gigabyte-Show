@@ -222,6 +222,7 @@ const perguntas = [
     ],
     respostaCorreta: 1,
   },
+ 
 ];
 
 
@@ -234,10 +235,12 @@ let pontos = 0;
 let erros = 0;
 let dicasRestantes = 7;
 
+
 // ===============================
 // Exibe pergunta atual
 // ===============================
 function exibirPergunta(index) {
+  const btnDica = document.getElementById("btnDica");
   if(dicasRestantes === 0) {
     btnDica.disabled = true;
   } else {
@@ -293,21 +296,47 @@ function verificarBotoesDesabilitados() {
 // ===============================
 // Verifica resposta
 // ===============================
+let tentativasPorPergunta = 0;
+
 function verificarResposta(escolhida, correta) {
   const botoes = document.querySelectorAll(".resposta");
 
   if (escolhida === correta) {
+    tentativasPorPergunta = 0;
     mostrarModalAcerto();
   } else {
-    mostrarModalErro();
     erros++;
     atualizarPlacar();
-
-    // Desabilita apenas o botão da resposta errada clicada
     botoes[escolhida].disabled = true;
     verificarBotoesDesabilitados();
+
+    tentativasPorPergunta++;
+
+    if (tentativasPorPergunta === 1) {
+      mostrarModalErro("❌ Errou! Tente novamente.");
+    } else if (tentativasPorPergunta === 2) {
+      mostrarModalErro("❌ Errou de novo! Última chance!");
+    } else {
+      mostrarModalErro("Você esgotou as tentativas para esta pergunta. Vamos para a próxima!");
+      tentativasPorPergunta = 0;
+      setTimeout(() => {
+        fecharModalErro();
+        perguntaIndiceAtual++;
+        if (perguntaIndiceAtual < perguntas.length) {
+          exibirPergunta(perguntaIndiceAtual);
+        } else {
+          // Aguarda um pouco antes de exibir a tela final
+          setTimeout(() => {
+            mostrarTelaFinal();
+            desativarBotoes();
+          }, 1000);
+        }
+        
+      }, ); // Espera 2s para mostrar a mensagem antes de ir para a próxima
+    }
   }
 }
+
 
 
 // ===============================
@@ -342,8 +371,8 @@ function usarDica() {
 
   // Remove (esconde) até 2 incorretas
   for (let i = 0; i < 2 && incorretas.length > 1; i++) {
-    const randIndex = Math.random() * incorretas.length;
-    const btn = incorretas.splice(randIndex, 2)[0];
+    const randIndex = Math.floor(Math.random() * incorretas.length);
+    const btn = incorretas.splice(randIndex, 1)[0];    
     btn.style.display = "none";
   }
 
@@ -362,6 +391,15 @@ function usarDica() {
 // ===============================
 document.addEventListener("DOMContentLoaded", () => {
   exibirPergunta(perguntaIndiceAtual);
+  document.addEventListener("DOMContentLoaded", () => {
+    exibirPergunta(perguntaIndiceAtual);
+    
+    // Garante que todos os modais estejam escondidos ao iniciar
+    document.getElementById("modalFinal").style.display = "none";
+    document.getElementById("modalAcerto").style.display = "none";
+    document.getElementById("modalErro").style.display = "none";
+  });
+  
 });
 
 function mostrarModalAcerto() {
@@ -373,26 +411,42 @@ function fecharModalAcerto() {
   pontos++;
   atualizarPlacar();
 
-  if (pontos === perguntas.length) {
-    alert(`Você completou o quiz!\nPontuação final: ${pontos} de ${perguntas.length}`);
+  if (pontos === perguntas.length || perguntaIndiceAtual === perguntas.length - 1) {
+    mostrarTelaFinal();
     desativarBotoes();
   } else {
     perguntaIndiceAtual++;
     exibirPergunta(perguntaIndiceAtual);
   }
+  
 }
 
-function mostrarModalErro() {
-  document.getElementById("modalErro").style.display = "block";
+function mostrarModalErro(mensagem = "❌ Resposta incorreta!") {
+  const modal = document.getElementById("modalErro");
+  const texto = document.getElementById("mensagemErro");
+  texto.textContent = mensagem;
+  modal.style.display = "block";
 }
+
 
 function fecharModalErro() {
   document.getElementById("modalErro").style.display = "none";
 }
 
-function mostrarModalFinal() {
-  const modal = document.getElementById("modalFinal");
+function mostrarTelaFinal() {
+  const modalFinal = document.getElementById("modalFinal");
   const mensagem = document.getElementById("mensagemFinal");
-  mensagem.innerText = `Você completou o quiz!\nPontuação final: ${pontos} de ${perguntas.length}`;
-  modal.style.display = "flex";
+  mensagem.textContent = `Você acertou ${pontos} de ${perguntas.length} perguntas.`;
+  modalFinal.style.display = "flex";
+
+}
+
+function reiniciarQuiz() {
+  pontos = 0;
+  erros = 0;
+  dicasRestantes = 7;
+  perguntaIndiceAtual = 0;
+  document.getElementById("modalFinal").style.display = "none";
+  atualizarPlacar();
+  exibirPergunta(perguntaIndiceAtual);
 }
