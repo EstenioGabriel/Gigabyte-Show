@@ -31,7 +31,7 @@ O objetivo é testar o conhecimento do jogador em **matemática**, de forma dive
 ---
 
 ## 🔗 **Acesse o jogo**
-👉 [**The Gigabyte Show**](https://esteniogabriel.github.io/projetoMatematicaJogo/)
+👉 [**The Gigabyte Show**](https://esteniogabriel.github.io/Gigabyte-Show/
 
 ---
 
