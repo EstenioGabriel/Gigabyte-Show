@@ -35,5 +35,13 @@ O objetivo é testar o conhecimento do jogador em **matemática**, de forma dive
 
 ---
 
+## 🏫 **Informações Acadêmicas**
+📅 **Semestre:** 2025.1  
+🎓 **Instituição:** Universidade de Fortaleza — *UNIFOR*  
+💻 **Curso:** Análise e Desenvolvimento de Sistemas  
+📚 **Disciplina:** Matemática  
+
+---
+
 ## 🖼️ **Prévia do jogo**
 ![](/image/logo1.PNG)
